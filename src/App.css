@@ -1,0 +1,170 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  padding: 10px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+  nav {
+    flex-direction: column;
+  }
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.nav-list > li {
+  align-self: center;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.nav-list button {
+  background-color: #646464;
+  color: white; 
+  border: 1px solid #fff;
+  border-radius: 6px;
+  font-size: 1.5em;
+  font-weight: 300;
+  padding: 6px;  
+}
+
+.nav-list button:hover {
+  background-color: #888;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 800px) {
+  .container {
+    flex-direction: column;
+  }
+}
+
+.lineup-container {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-gap: 20px;
+  grid-row-gap: 10px;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 800px) {
+  .lineup-container {
+    grid-template-columns: 20% 80%;
+  }
+}
+
+.lineup-position {
+  justify-self: end;
+  font-size: 2.4em;
+  font-weight: 100;
+  color: #ccc;
+}
+
+.lineup-player {
+  justify-self: start;
+  text-align: left;
+  width: 200px;
+  border: 1px black dashed;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 1.1em;
+  font-weight: 300;
+}
+
+.lineup-player-selected {
+  justify-self: start;
+  text-align: left;
+  width: 200px;
+  border: 2px black solid;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 1.1em;
+  font-weight: 300;
+  color: #fff;
+}
+
+.lineup-player-empty {
+  justify-self: start;
+  text-align: left;
+  width: 200px;
+  border: 1px black dashed;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 1.0em;
+  font-weight: 300;
+  color: #aaa;  
+}
+
+.roster-section {
+  font-size: 1.1em;
+  font-weight: 300;
+  margin: 20px;
+}
+
+.roster-section > table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.roster-row > td {
+  text-align: left;
+  padding-left: 10px;
+}
+
+.roster-row .add-remove-button {
+  background-color: #999;
+  color: white; 
+  border: 1px solid #666;
+  border-radius: 6px;
+  padding-top: 5px;
+}
+
+.roster-row a {
+  text-decoration: none;
+  color: #777;
+}
+
+.roster-row a:hover {
+  text-decoration: underline;
+}
+
