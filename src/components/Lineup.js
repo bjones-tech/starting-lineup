@@ -53,7 +53,7 @@ class Lineup extends React.Component {
       <div>
         <h2>Lineup</h2>
         {this.state.lineupSheet.map((slot, index) => (
-          <div className='lineup-container'>
+          <div className='row-container'>
             <div className='lineup-position'>{index + 1}</div>
 
             {this.props.lineup[index] ? (

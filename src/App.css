@@ -64,7 +64,8 @@ nav {
   background-color: #888;
 }
 
-.container {
+.container,
+.row-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -76,62 +77,33 @@ nav {
   }
 }
 
-.lineup-container {
-  display: grid;
-  grid-template-columns: 40% 60%;
-  grid-gap: 20px;
-  grid-row-gap: 10px;
-  justify-content: center;
-}
-
-@media only screen and (max-width: 800px) {
-  .lineup-container {
-    grid-template-columns: 20% 80%;
-  }
-}
-
 .lineup-position {
-  justify-self: end;
-  font-size: 2.4em;
-  font-weight: 100;
   color: #ccc;
+  align-self: center;
+  font-size: 1.8em;
+  font-weight: 100;
 }
 
-.lineup-player {
-  justify-self: start;
-  text-align: left;
+.lineup-player,
+.lineup-player-selected,
+.lineup-player-empty {
   width: 200px;
   border: 1px black dashed;
   border-radius: 4px;
+  margin: 10px;
   padding: 10px;
-  margin-bottom: 20px;
+  text-align: left;
   font-size: 1.1em;
-  font-weight: 300;
+  font-weight: 100;
 }
 
 .lineup-player-selected {
-  justify-self: start;
-  text-align: left;
-  width: 200px;
   border: 2px black solid;
-  border-radius: 4px;
-  padding: 10px;
-  margin-bottom: 20px;
-  font-size: 1.1em;
-  font-weight: 300;
+  margin: 9px;
   color: #fff;
 }
 
 .lineup-player-empty {
-  justify-self: start;
-  text-align: left;
-  width: 200px;
-  border: 1px black dashed;
-  border-radius: 4px;
-  padding: 10px;
-  margin-bottom: 20px;
-  font-size: 1.0em;
-  font-weight: 300;
   color: #aaa;  
 }
 
