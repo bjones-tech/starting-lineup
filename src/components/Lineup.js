@@ -2,11 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { reorderPositions } from '../redux/actions';
 
+import LineupPosition from './LineupPosition'
+import LineupPlayer from './LineupPlayer'
+
 class Lineup extends React.Component {
   state = {
+    lineupSheet: Array.from({ length: 9 }),
     startPosition: null,
     currentPosition: null,
-    lineupSheet: Array.from({ length: 9 })
   }
 
   onDragOver = event => {
@@ -28,7 +31,7 @@ class Lineup extends React.Component {
     })
 
     this.props.reorderPositions(this.state.startPosition, event.target.id)
-    
+
     event.target.className = 'lineup-player-selected'
   }
 
@@ -48,25 +51,22 @@ class Lineup extends React.Component {
     event.target.className = 'lineup-player'
   }
 
+  dragActions = {
+    onDragStart: this.onDragStart,
+    onDragEnter: this.onDragEnter,
+    onDragLeave: this.onDragLeave,
+    onDragOver: this.onDragOver,
+    onDrop: this.onDrop,
+  }
+
   render() {
     return (
       <div>
         <h2>Lineup</h2>
         {this.state.lineupSheet.map((slot, index) => (
           <div className='row-container'>
-            <div className='lineup-position'>{index + 1}</div>
-
-            {this.props.lineup[index] ? (
-              <div className='lineup-player' id={index} draggable
-                onDragStart={this.onDragStart}
-                onDragOver={this.onDragOver}
-                onDragEnter={this.onDragEnter}
-                onDragLeave={this.onDragLeave}
-                onDrop={this.onDrop}>
-                {this.props.lineup[index].name}
-              </div>):(
-                <div className='lineup-player-empty'>Add from Roster</div>
-              )}
+            <LineupPosition index={index} />
+            <LineupPlayer index={index} dragActions={this.dragActions} />
           </div>
         ))}
       </div>
@@ -74,12 +74,8 @@ class Lineup extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  lineup: state.lineup,
-})
-
 const mapDispatchToProps = {
   reorderPositions: reorderPositions,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Lineup)
+export default connect(null, mapDispatchToProps)(Lineup)
