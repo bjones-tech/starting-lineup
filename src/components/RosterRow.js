@@ -9,17 +9,18 @@ import { addToLineup, removeFromLineup } from '../redux/actions';
 
 const Action = props => {
   const playerInLineup = props.lineup.filter(player => player.number === parseInt(props.player.number))
-  const buttonColor = playerInLineup.length === 0 ? { background: '#59a63f' } : { background: '#dbceb0' }
+  let buttonColor = { background: '#dbceb0' }
 
   if (playerInLineup.length === 0) {
+    buttonColor = props.lineup.length < 9 ? { background: '#59a63f' } : { background: '#646464' }
     return <button style={buttonColor} className='add-remove-button' onClick={() => { props.addToLineup(props.player) }}><Icon icon={plus} size={12} /></button>
   } else {
     return <button style={buttonColor} className='add-remove-button' onClick={() => { props.removeFromLineup(props.player) }}><Icon icon={minus} size={12} /></button>
-  }  
+  }
 }
 
 const RosterRow = props => (
-  <tr class='roster-row'>
+  <tr class='roster-row' key={props.player.number}>
     <td style={{ textAlign: 'right' }}>{props.player.number}</td>
     <td><Link to={`/player/${props.player.number}`}>{props.player.name}</Link></td>
     <td><Action {...props} /></td>

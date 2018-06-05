@@ -6,7 +6,6 @@ import Roster from './Roster';
 
 const NavBar = () => (
   <nav>
-    {/* <img src={logo} className="App-logo" alt="logo" /> */}
     <ul class='nav-list'>
       <li><Link to={'/'}><button>Roster</button></Link></li>
       <li><Link to={'/lineup'}><button>Lineup</button></Link></li>
