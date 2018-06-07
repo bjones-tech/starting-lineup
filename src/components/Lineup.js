@@ -4,6 +4,7 @@ import { reorderPositions } from '../redux/actions';
 
 import LineupPosition from './LineupPosition'
 import LineupPlayer from './LineupPlayer'
+import Description from './Description'
 
 class Lineup extends React.Component {
   state = {
@@ -63,6 +64,7 @@ class Lineup extends React.Component {
     return (
       <div>
         <h2>Lineup</h2>
+        <Description>Drag and Drop players to change their lineup position</Description>
         {this.state.lineupSheet.map((slot, index) => (
           <div className='row-container'>
             <LineupPosition index={index} />
